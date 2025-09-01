@@ -6,12 +6,12 @@ import SideBarProvider from './contexts/SideBarProvider'
 import { BrowserRouter } from 'react-router-dom'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <SideBarProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </SideBarProvider>
-  </StrictMode>
+  // <StrictMode>
+  <SideBarProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </SideBarProvider>
+  // </StrictMode>
   ,
 )

@@ -1,12 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const OutlinedIconTextButton = ({ Path, IconSource, ButtonText, ClassName, ButtonHandler }) => {
+const OutlinedIconTextButton = ({ Path, IconSource, ButtonText, ClassName, OnClickHandler }) => {
     return (
         <>
 
             <NavLink to={Path}>
-                <button onClick={ButtonHandler} className={`${ClassName} flex items-center rounded-md px-3 py-2 shadow text-xs font-bold ring-1 ring-gray-400 cursor-pointer`}>
+                <button onClick={OnClickHandler} className={`${ClassName} flex items-center rounded-md px-3 py-2 shadow text-xs font-bold ring-1 ring-gray-400 cursor-pointer`}>
                     <img
                         src={`./src/images/button_icons/${IconSource}`}
                         alt=""

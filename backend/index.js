@@ -6,6 +6,7 @@ dotenv.config({});
 import { dbConnect } from "./db/db.js";
 import userRouter from "./routes/user.routes.js";
 import cardRouter from "./routes/card.route.js";
+import paymentRouter from "./routes/payment.route.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/user/card", cardRouter);
+app.use("/api/v1/user/payment", paymentRouter);
 
 app.listen(PORT, () => {
     dbConnect();

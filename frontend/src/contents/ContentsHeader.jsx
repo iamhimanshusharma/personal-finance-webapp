@@ -12,7 +12,7 @@ import { USER_URI } from "../constants.js";
 const ContentsHeader = ({ Title }) => {
 
     const navigate = useNavigate();
-    const { sideBarShow, setSideBarShow, currUserData, setCurrUserData } = useContext(SideBarContext);
+    const { sideBarShow, setSideBarShow, allCards, setAllCards, currUserData, setCurrUserData } = useContext(SideBarContext);
 
     const [userId, setUserId] = useState(null);
 
@@ -25,6 +25,7 @@ const ContentsHeader = ({ Title }) => {
             try {
                 const decoded = jwtDecode(userCookie);
                 setUserId(decoded.userId);
+                getCards();
                 getData();
             } catch (err) {
                 console.error("Invalid token:", err);
@@ -32,6 +33,23 @@ const ContentsHeader = ({ Title }) => {
             }
         }
     }, []);
+
+    async function getCards() {
+        try {
+            const response = await axios.get(`${USER_URI}/card/cards`, { headers: { "Content-Type": "application/json" }, withCredentials: true });
+            if (!response) {
+                console.log("Something wrong in getting cards")
+            }
+            setAllCards(prev => ([...response.data.cards.map(p => ({
+                name: p.name,
+                cardnumber: p.cardnumber
+            })
+            )]));
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
 
     async function getData() {
         try {
@@ -45,6 +63,7 @@ const ContentsHeader = ({ Title }) => {
                 const tempCard = [];
                 setCurrUserData(prev => ({
                     ...prev,
+                    userid: response.data.user._id,
                     fullname: response.data.user.fullname,
                     email: response.data.user.email,
                     cards: response.data.user.cards

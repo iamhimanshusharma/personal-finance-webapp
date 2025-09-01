@@ -20,15 +20,24 @@ import Cookies from "js-cookie"
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const userCookie = Cookies.get("token");
+
+    if (userCookie) {
+      setIsLoggedIn(true);
+    }
+  }, [])
 
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signin" element={<SignIn />} />
         <Route path="*" element={isLoggedIn ? <MainPage /> : <Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="*" element={isLoggedIn ? <MainPage /> : <Login />} />
       </Routes>
 
     </>

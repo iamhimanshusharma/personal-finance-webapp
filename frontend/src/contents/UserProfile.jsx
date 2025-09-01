@@ -21,6 +21,9 @@ const UserProfile = () => {
                     "Content-Type": "application/json"
                 }, withCredentials: true
             });
+            if (response) {
+                navigate("/login");
+            }
         } catch (error) {
             console.log(error)
         }
@@ -36,7 +39,7 @@ const UserProfile = () => {
                 />
             </button>
 
-            {userProfileOption ? (<div className='bg-white absolute top-15 right-0 transition duration-1000'>
+            {userProfileOption ? (<div className='bg-white absolute top-15 right-0 transition duration-1000 z-50'>
                 <p className='text-sm font-bold mx-4 mt-1 mb-4'>{currUserData.fullname}</p>
                 <IconTextButton Path={"/profile"} IconSource={"user.png"} FilledIconSource={"user.png"} ButtonText={"Profile"} />
                 <IconTextButton Path={"/"} IconSource={"home.png"} FilledIconSource={"home_filled.png"} ButtonText={"Dashboard"} />

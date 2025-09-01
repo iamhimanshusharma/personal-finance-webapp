@@ -23,7 +23,7 @@ const Login = () => {
         if (userCookie) {
             navigate("/");
         }
-    });
+    }, []);
 
     function handleChangeLogin(e) {
         setUserLoginData({ ...userLoginData, [e.target.name]: e.target.value });
@@ -62,7 +62,7 @@ const Login = () => {
                         <OutlinedTextInput Title={"Password"} Placeholder={"Password"} Name={"password"} Value={userLoginData.password} OnChange={handleChangeLogin} />
                     </div>
                     <div className='flex my-2 items-center justify-center'>
-                        <OutlinedIconTextButton IconSource={"auth.png"} ButtonText={"Login"} ButtonHandler={loginHandler} ClassName={"px-19 bg-gray-100 hover:bg-gray-200"} />
+                        <OutlinedIconTextButton IconSource={"auth.png"} ButtonText={"Login"} OnClickHandler={loginHandler} ClassName={"px-19 bg-gray-100 hover:bg-gray-200"} />
                     </div>
                 </div>
             </div >

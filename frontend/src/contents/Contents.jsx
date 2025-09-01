@@ -9,8 +9,13 @@ import Settings from "../pages/Settings"
 import HelpAndSupport from "../pages/HelpAndSupport"
 import ContentsHeader from "./ContentsHeader"
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useState } from "react"
+import Login from "../auth/Login";
+import MainPage from "../MainPage"
+import App from "../App"
 
 const Contents = () => {
+
     return (
         <>
             <Routes>
@@ -24,6 +29,7 @@ const Contents = () => {
                 <Route path="/settings" element={<Settings />} />
                 <Route path="/helpandsupport" element={<HelpAndSupport />} />
             </Routes>
+
         </>
     )
 }

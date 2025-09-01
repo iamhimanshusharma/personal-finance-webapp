@@ -17,9 +17,9 @@ const Cards = () => {
             <div className='max-w-full m-2'>
                 <div className='flex items-center justify-between'>
                     <p className='text-2xl'>Cards</p>
-                    <IconTextButton IconSource={"home.png"} FilledIconSource={"home.png"} ButtonText={"Add Card"} OnClickHandler={() => setAddCardPopup(!addCardPopup)} />
-                    <AddCardPopup Show={addCardPopup} OnClose={() => setAddCardPopup(false)} />
+                    <IconTextButton IconSource={"add.png"} FilledIconSource={"home.png"} ButtonText={"Add Card"} OnClickHandler={() => setAddCardPopup(!addCardPopup)} />
                 </div>
+                <AddCardPopup Show={addCardPopup} OnClose={() => setAddCardPopup(false)} />
                 <div className='flex items-center overflow-auto p-2 custom-scrollbar'>
                     {
                         currUserData.cards.map((item, key) => (
@@ -27,30 +27,30 @@ const Cards = () => {
                                 <p>{item.bankname}</p>
                                 <p>{item.name}</p>
                                 <p>{item.cardnumber}</p>
-                                <p>{`${String(new Date(item.expiry).getUTCMonth() + 1).padStart(2, '0')} / ${new Date(item.expiry).getUTCFullYear().toString().slice(-2)}`}</p>
+                                <p>{`${item.expiry.split("/")[0].padStart(2, '0')} / ${item.expiry.split("/")[1].padStart(2, '0')}`}</p>
                             </div>
                         ))
                     }
                 </div>
                 <p className='text-sm font-bold m-2'>Card Details</p>
                 <div className='px-4'>
-                    <table className='table-fixed max-w-full'>
+                    <table className='' width={`100%`}>
                         <tbody>
                             <tr>
                                 <td className='text-sm font-bold'>Name</td>
                                 <td>{currUserData.cards[showCardDetails]?.name}</td>
                             </tr>
                             <tr>
-                                <td className='text-sm font-bold'>Bank Name </td>
-                                <td>{currUserData.cards[showCardDetails]?.bankname}</td>
-                            </tr>
-                            <tr>
                                 <td className='text-sm font-bold'>Card Number</td>
                                 <td>{currUserData.cards[showCardDetails]?.cardnumber}</td>
                             </tr>
                             <tr>
+                                <td className='text-sm font-bold'>Balance</td>
+                                <td>{currUserData.cards[showCardDetails]?.balance} ₹</td>
+                            </tr>
+                            <tr>
                                 <td className='text-sm font-bold'>Expiry</td>
-                                <td>{`${String(new Date(currUserData.cards[showCardDetails]?.expiry).getUTCMonth() + 1).padStart(2, '0')} / ${new Date(currUserData.cards[showCardDetails]?.expiry).getUTCFullYear().toString()}`}</td>
+                                <td>{`${currUserData.cards[showCardDetails]?.expiry.split("/")[0].padStart(2, '0')} / ${currUserData.cards[showCardDetails]?.expiry.split("/")[1].padStart(2, '0')}`}</td>
                             </tr>
                             <tr>
                                 <td className='text-sm font-bold'>Type</td>
@@ -59,7 +59,7 @@ const Cards = () => {
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

@@ -7,7 +7,7 @@ export const addCard = async (req, res) => {
         const userId = req.userId;
         const { name, cvv, cardnumber, expiry, bankname, type, branch } = req.body;
 
-        if (!name || !cvv || !cardnumber || !expiry || !bankname || !type) {
+        if (!name || !cvv || !cardnumber || !expiry || !type) {
             return res.status(404).json({
                 success: false,
                 message: "Something is missing"
@@ -43,5 +43,26 @@ export const addCard = async (req, res) => {
 
     } catch (error) {
         console.log(error);
+    }
+}
+
+export const getAllCards = async (req, res) => {
+    try {
+        const allCards = await Card.find({});
+
+        if (!allCards) {
+            return res.status(200).json({
+                success: false,
+                message: "No card found"
+            })
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "All Cards",
+            cards: allCards
+        })
+    } catch (error) {
+        console.log(error)
     }
 }

@@ -19,21 +19,19 @@ const cardSchema = new Schema({
         unique: true
     },
     expiry: {
-        type: Date,
-        required: true
-    },
-    bankname: {
         type: String,
         required: true
-    },
-    branch: {
-        type: String,
     },
     type: {
         type: String,
         enum: ['credit', 'debit'],
         required: true
     },
+    balance: {
+        type: Number,
+        default: 20000,
+        required: true
+    }
 }, { timestamps: true });
 
 

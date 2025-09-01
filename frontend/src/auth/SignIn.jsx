@@ -74,7 +74,7 @@ const SignIn = () => {
                         <OutlinedTextInput Title={"Password"} Placeholder={"Password"} Name={"password"} Value={userData.password} OnChange={handleChange} />
                     </div>
                     <div className='flex my-2 items-center justify-center'>
-                        <OutlinedIconTextButton IconSource={"auth.png"} ButtonText={"Sign In"} ButtonHandler={signinHandler} ClassName={"px-18 bg-gray-100 hover:bg-gray-200"} />
+                        <OutlinedIconTextButton IconSource={"auth.png"} ButtonText={"Sign In"} OnClickHandler={signinHandler} ClassName={"px-18 bg-gray-100 hover:bg-gray-200"} />
                     </div>
                 </div>
             </div>

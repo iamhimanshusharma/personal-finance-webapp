@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cookieParser());
 
 const corsOptions = {
-    origin: 'https://personal-finance-webapp-puzh.vercel.app',
+    origin: '*',
     credentials: true
 }
 

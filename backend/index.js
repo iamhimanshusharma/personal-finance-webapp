@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cookieParser());
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'https://personal-finance-webapp-smoky.vercel.app',
     credentials: true
 }
 

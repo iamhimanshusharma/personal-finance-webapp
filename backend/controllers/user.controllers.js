@@ -131,3 +131,14 @@ export const userLogout = async (req, res) => {
         console.log(error)
     }
 }
+
+export const userTest = async (req, res) => {
+    try {
+        return res.status(200).json({
+            success: true,
+            message: "It's working"
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}

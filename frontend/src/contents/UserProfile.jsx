@@ -39,8 +39,8 @@ const UserProfile = () => {
                 />
             </button>
 
-            {userProfileOption ? (<div className='bg-white absolute top-15 right-0 transition duration-1000 z-50'>
-                <p className='text-sm font-bold mx-4 mt-1 mb-4'>{currUserData.fullname}</p>
+            {userProfileOption ? (<div className='bg-white absolute top-15 shadow-lg right-1 transition duration-1000 z-50 ring-1 ring-gray-300 rounded-md'>
+                <p className='text-sm font-bold mx-4 mt-4 mb-3'>{currUserData.fullname}</p>
                 <IconTextButton Path={"/profile"} IconSource={"user.png"} FilledIconSource={"user.png"} ButtonText={"Profile"} />
                 <IconTextButton Path={"/"} IconSource={"home.png"} FilledIconSource={"home_filled.png"} ButtonText={"Dashboard"} />
                 <IconTextButton OnClickHandler={logoutHandler} Path={"/logout"} IconSource={"user.png"} ButtonText={"Logout"} />

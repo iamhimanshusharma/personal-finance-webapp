@@ -4,6 +4,7 @@ import { useContext } from 'react'
 import { SideBarContext } from '../contexts/SideBarContext'
 import IconTextButton from '../utils/IconTextButton'
 import AddCardPopup from './AddCardPopup'
+import SearchBar from './components/SearchBar'
 
 const Cards = () => {
     const { currUserData } = useContext(SideBarContext);
@@ -16,7 +17,7 @@ const Cards = () => {
 
             <div className='max-w-full m-2'>
                 <div className='flex items-center justify-between'>
-                    <p className='text-2xl'>Cards</p>
+                    <SearchBar />
                     <IconTextButton IconSource={"add.png"} FilledIconSource={"home.png"} ButtonText={"Add Card"} OnClickHandler={() => setAddCardPopup(!addCardPopup)} />
                 </div>
                 <AddCardPopup Show={addCardPopup} OnClose={() => setAddCardPopup(false)} />

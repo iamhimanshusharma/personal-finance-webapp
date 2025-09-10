@@ -80,7 +80,7 @@ const ContentsHeader = ({ Title }) => {
         <>
             <div className="p-2 flex items-center justify-between shadow py-3">
                 <div className={`flex items-center justify-center`}>
-                    <img onClick={() => setSideBarShow(!sideBarShow)} className={`w-8 h-8 ring-1 rounded-sm ring-gray-400 cursor-pointer max-sm:block ${!sideBarShow ? 'hidden' : ''}`} src="./src/images/button_icons/menu.png" alt="" />
+                    <img onClick={() => setSideBarShow(!sideBarShow)} className={`w-8 h-8 ring-1 rounded-sm ring-gray-400 cursor-pointer max-sm:block ${!sideBarShow ? 'hidden' : ''}`} src="/images/button_icons/menu.png" alt="" />
                     <p className="text-xl font-bold px-3">{Title}</p>
                 </div>
                 <div>

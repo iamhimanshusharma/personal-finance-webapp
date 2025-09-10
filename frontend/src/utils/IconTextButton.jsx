@@ -13,7 +13,7 @@ const IconTextButton = ({ Path, IconSource, ButtonText, OnClickHandler }) => {
                     <button onClick={OnClickHandler} className="w-full rounded-md py-2 text-gray-700 text-left px-2 text-xs font-bold cursor-pointer">
                         <span className="flex items-center">
                             <img
-                                src={`./src/images/button_icons/${IconSource}`}
+                                src={`/images/button_icons/${IconSource}`}
                                 alt=""
                                 className="w-3 h-3 mx-2"
                             />

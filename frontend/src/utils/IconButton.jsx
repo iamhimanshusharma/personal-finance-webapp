@@ -5,7 +5,7 @@ const IconButton = ({ Path, IconSource }) => {
     return (
         <>
             <NavLink to={Path}>
-                <button className="cursor-pointer"><img className="w-6 h-6" src={`./src/images/button_icons/${IconSource}`} alt="" /></button>
+                <button className="cursor-pointer"><img className="w-6 h-6" src={`/images/button_icons/${IconSource}`} alt="" /></button>
             </NavLink >
 
         </>

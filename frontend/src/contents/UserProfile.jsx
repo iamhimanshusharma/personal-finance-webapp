@@ -33,7 +33,7 @@ const UserProfile = () => {
         <>
             <button onClick={() => setUserProfileOption(!userProfileOption)} className="cursor-pointer relative flex items-center justify-center rounded-md shadow ring-1 ring-gray-400">
                 <img
-                    src={`./src/images/button_icons/user.png`}
+                    src={`/images/button_icons/user.png`}
                     alt=""
                     className="h-8 w-8"
                 />

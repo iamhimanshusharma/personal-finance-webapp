@@ -5,6 +5,7 @@ const Home = () => {
     return (
         <>
             <HomeHeader />
+            <img className='h-64 w-64' src="./src/pages/panda.jpg" alt="" />
         </>
     )
 }

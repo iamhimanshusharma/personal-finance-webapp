@@ -1,1 +1,1 @@
-export const USER_URI = "http://localhost:3000/api/v1/user"
+export const USER_URI = "https://pfw-wine.vercel.app/api/v1/user"

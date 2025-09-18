@@ -22,16 +22,6 @@ The backend uses **Mongoose** with **MongoDB Atlas** for database management.
 
 ---
 
-## 📂 Project Structure
-```
-personal-finance-webapp/
-│── backend/        # Express.js backend API
-│── frontend/       # React frontend
-│── README.md       # Documentation
-```
-
----
-
 ## ⚙️ Installation
 
 ### 1️⃣ Clone the Repository
@@ -77,7 +67,7 @@ REACT_APP_API_URL=http://localhost:5000/api
 
 Run frontend app:
 ```bash
-npm start
+npm run dev
 ```
 
 ---

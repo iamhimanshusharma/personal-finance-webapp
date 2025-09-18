@@ -39,16 +39,17 @@ npm install
 Create a `.env` file inside the `backend/` folder:
 
 ```env
-PORT=5000
-DB_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/personal_finance
-JWT_SECRET=your_jwt_secret
+PORT=3000
+DB_CONNECTION_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net
+DB_NAME=myfinance
+JWT_TOKEN_SECRET=your_jwt_secret
 ```
 
-> Replace `<username>` and `<password>` with your MongoDB Atlas credentials.
+> Replace `DB_CONNECTION_URI` with your MongoDB Atlas connection URI.
 
 Run backend server:
 ```bash
-npm run dev   # or npm start
+npm run dev
 ```
 
 ---
@@ -59,10 +60,10 @@ cd ../frontend
 npm install
 ```
 
-Create a `.env` file inside the `frontend/` folder:
+Place backend URL in `constants.js` file inside the `frontend/src/` folder:
 
 ```env
-REACT_APP_API_URL=http://localhost:5000/api
+USER_URI=http://localhost:3000/api/v1/user
 ```
 
 Run frontend app:
@@ -79,9 +80,9 @@ npm run dev
 3. Add a database user & whitelist your IP.
 4. Copy your connection string (example):
    ```
-   mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/personal_finance
+   mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net
    ```
-5. Paste it into the `DB_URI` variable in your `backend/.env` file.
+5. Paste it into the `DB_CONNECTION_URI` variable and database name in `DB_NAME` in your `backend/.env` file.
 
 The backend connects to Atlas via **Mongoose** automatically.
 
@@ -93,13 +94,13 @@ The backend connects to Atlas via **Mongoose** automatically.
    ```bash
    npm run dev
    ```
-   Backend runs on: `http://localhost:5000`
+   Backend runs on: `http://localhost:3000`
 
 2. Start the frontend (from `/frontend`):
    ```bash
-   npm start
+   npm run dev
    ```
-   Frontend runs on: `http://localhost:3000`
+   Frontend runs on: `http://localhost:5173`
 
 ---
 

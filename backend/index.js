@@ -7,6 +7,7 @@ import { dbConnect } from "./db/db.js";
 import userRouter from "./routes/user.routes.js";
 import cardRouter from "./routes/card.route.js";
 import paymentRouter from "./routes/payment.route.js";
+import { USER_URI } from "./constants.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cookieParser());
 
 const corsOptions = {
-    origin: 'https://personal-finance-webapp-puzh.vercel.app',
+    origin: USER_URI,
     credentials: true
 }
 

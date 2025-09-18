@@ -1,0 +1,1 @@
+export const USER_URI = `https://personal-finance-webapp-puzh.vercel.app`

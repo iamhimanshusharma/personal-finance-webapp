@@ -5,7 +5,8 @@ const Home = () => {
     return (
         <>
             <HomeHeader />
-            <img className='h-64 w-64' src="/panda.jpg" alt="" />
+            <p className='text-center text-5xl mt-4'>Demo</p>
+            <p className=''>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum mollitia dolorum enim atque? Rerum voluptates commodi quia perspiciatis sed culpa!</p>
         </>
     )
 }

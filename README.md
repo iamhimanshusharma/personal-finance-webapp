@@ -1,78 +1,115 @@
 # Personal Finance WebApp
 
-A full-stack personal finance management application.  
-- **Backend:** Node.js + Express  
-- **Frontend:** React  
-- **Styling:** Tailwind CSS  
+A full-stack personal finance management application built with **Node.js**, **Express**, **React**, and **Tailwind CSS**.  
+The backend uses **Mongoose** with **MongoDB Atlas** for database management.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Features
+- User authentication (JWT-based)
+- Add, edit, and delete income/expenses
+- Dashboard with financial summary
+- Responsive UI with Tailwind CSS
+- MongoDB Atlas integration via Mongoose
 
-### Clone Repository
+---
+
+## 🛠️ Tech Stack
+- **Frontend:** React, Tailwind CSS
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB Atlas (via Mongoose)
+- **Authentication:** JWT
+
+---
+
+## 📂 Project Structure
+```
+personal-finance-webapp/
+│── backend/        # Express.js backend API
+│── frontend/       # React frontend
+│── README.md       # Documentation
+```
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/iamhimanshusharma/personal-finance-webapp.git
 cd personal-finance-webapp
 ```
 
----
+### 2️⃣ Backend Setup
+```bash
+cd backend
+npm install
+```
 
-## ⚙️ Backend Setup (Node.js + Express)
+Create a `.env` file inside the `backend/` folder:
 
-1. Navigate into backend folder:
-   ```bash
-   cd backend
-   ```
+```env
+PORT=5000
+DB_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/personal_finance
+JWT_SECRET=your_jwt_secret
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+> Replace `<username>` and `<password>` with your MongoDB Atlas credentials.
 
-3. Create a `.env` file inside `backend/`:
-   ```env
-   PORT=5000
-   DB_URI=your_database_url
-   JWT_SECRET=your_secret
-   ```
-
-4. Start server:
-   ```bash
-   # Development
-   npm run dev    # ← Replace with your actual dev script
-   # Production
-   npm run start  # ← Replace with your actual start script
-   ```
-
-By default backend runs on:  
-👉 `http://localhost:5000`
+Run backend server:
+```bash
+npm run dev   # or npm start
+```
 
 ---
 
-## 🎨 Frontend Setup (React + Tailwind CSS)
+### 3️⃣ Frontend Setup
+```bash
+cd ../frontend
+npm install
+```
 
-1. Open a new terminal, go to frontend:
+Create a `.env` file inside the `frontend/` folder:
+
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+```
+
+Run frontend app:
+```bash
+npm start
+```
+
+---
+
+## 🗄️ Database Setup (MongoDB Atlas with Mongoose)
+
+1. Sign up at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+2. Create a free cluster.
+3. Add a database user & whitelist your IP.
+4. Copy your connection string (example):
+   ```
+   mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/personal_finance
+   ```
+5. Paste it into the `DB_URI` variable in your `backend/.env` file.
+
+The backend connects to Atlas via **Mongoose** automatically.
+
+---
+
+## ▶️ Running the Project
+
+1. Start the backend (from `/backend`):
    ```bash
-   cd frontend
+   npm run dev
    ```
+   Backend runs on: `http://localhost:5000`
 
-2. Install dependencies:
+2. Start the frontend (from `/frontend`):
    ```bash
-   npm install
+   npm start
    ```
-
-3. Create `.env` file inside `frontend/`:
-   ```env
-   REACT_APP_API_BASE_URL=http://localhost:5000/api
-   ```
-
-4. Start frontend:
-   ```bash
-   npm start   # ← Replace with your actual start script
-   ```
-
-By default frontend runs on:  
-👉 `http://localhost:3000`
+   Frontend runs on: `http://localhost:3000`
 
 ---
 
@@ -114,13 +151,15 @@ personal-finance-webapp/
 ---
 
 ## 🤝 Contributing
-1. Fork repo  
-2. Create feature branch (`git checkout -b feature/your-feature`)  
-3. Commit changes (`git commit -m "Add feature"`)  
-4. Push branch (`git push origin feature/your-feature`)  
-5. Open Pull Request  
+Contributions are welcome!  
+- Fork the repo  
+- Create a new branch (`feature/your-feature`)  
+- Commit your changes  
+- Open a Pull Request  
 
 ---
 
 ## 📜 License
-This project is open-source under the MIT License.
+This project is licensed under the **MIT License**.
+
+---

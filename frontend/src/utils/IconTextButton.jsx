@@ -1,16 +1,16 @@
 import { Link, NavLink, Router } from "react-router-dom"
 import IconTextButtonActive from "./IconTextButtonActive"
 
-const IconTextButton = ({ Path, IconSource, ButtonText, OnClickHandler }) => {
+const IconTextButton = ({ Path, IconSource, ButtonText, OnClickHandler, ClassName }) => {
     return (
         <>
 
             <NavLink to={Path}>
                 {({ isActive }) => isActive ? (
-                    <IconTextButtonActive FilledIconSource={IconSource} ButtonText={ButtonText} OnClickHandler={OnClickHandler} />
+                    <IconTextButtonActive FilledIconSource={IconSource} ButtonText={ButtonText} OnClickHandler={OnClickHandler} ClassName={ClassName} />
 
                 ) : (
-                    <button onClick={OnClickHandler} className="w-full rounded-md py-2 text-gray-700 text-left px-2 text-xs font-bold cursor-pointer">
+                    <button onClick={OnClickHandler} className={`${ClassName} w-full rounded-md py-2 text-gray-700 text-left px-2 text-xs font-bold cursor-pointer`}>
                         <span className="flex items-center">
                             <img
                                 src={`/images/button_icons/${IconSource}`}

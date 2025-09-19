@@ -10,7 +10,7 @@ const HomeHeader = ({ children }) => {
                 <NavLink to="/">
                     <div className='flex items-center'>
                         <img className="w-10 h-10" src="/images/button_icons/user.png" alt="" />
-                        <p className='mx-3 text-xl font-bold'>Demo</p>
+                        <p className='mx-3 text-xl font-bold'>FinTrack</p>
                     </div>
                 </NavLink>
                 <div className='flex items-center space-x-2'>

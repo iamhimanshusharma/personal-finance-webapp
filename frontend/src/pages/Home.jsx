@@ -4,12 +4,11 @@ import HomeHeader from '../HomeHeader'
 const Home = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-900">
-            {/* Sticky Navbar */}
+
             <div className="sticky top-0 z-50 shadow">
                 <HomeHeader />
             </div>
 
-            {/* Hero Section */}
             <section className="flex flex-col-reverse md:flex-row items-center justify-between px-8 py-5 max-w-7xl mx-auto">
                 <div className="md:w-1/2 space-y-6">
                     <h2 className="text-4xl md:text-5xl font-bold leading-tight">

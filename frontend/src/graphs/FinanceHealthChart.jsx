@@ -9,8 +9,8 @@ import {
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export default function FinanceHealthChart() {
-    const percentage = 77;
+export default function FinanceHealthChart({ overAllPercentage }) {
+    const percentage = overAllPercentage;
 
     const data = {
         datasets: [

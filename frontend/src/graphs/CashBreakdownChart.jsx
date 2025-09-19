@@ -11,7 +11,7 @@ import { Bar } from "react-chartjs-2";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
-const CashBreakdownChart = () => {
+const CashBreakdownChart = ({ incomeBreakDown = [], expenseBreakDown = [] }) => {
     const chartRef = useRef(null);
 
     const labels = [
@@ -34,7 +34,7 @@ const CashBreakdownChart = () => {
         datasets: [
             {
                 label: "Income",
-                data: [3200, 1800, 2500, 2200, 2800, 3000, 0, 2700, 3100, 2600, 2400, 2900],
+                data: incomeBreakDown,
                 backgroundColor: function (context) {
                     const chart = context.chart;
                     const { ctx, chartArea } = chart;
@@ -49,7 +49,7 @@ const CashBreakdownChart = () => {
             },
             {
                 label: "Expenses",
-                data: [-1200, -800, -1000, -900, -1500, -1300, 0, -1400, -1700, -1100, -1200, -1600],
+                data: expenseBreakDown,
                 backgroundColor: function (context) {
                     const chart = context.chart;
                     const { ctx, chartArea } = chart;

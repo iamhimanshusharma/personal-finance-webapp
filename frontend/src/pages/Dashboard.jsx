@@ -16,6 +16,8 @@ import FinanceHealthGauge from '../graphs/FinanceHealthGauge'
 import Tabs from './components/Tabs'
 import SearchBar from './components/SearchBar'
 import { UserContext } from '../contexts/UserContext'
+import { calculateMonthlyTotals } from './helperfunctions/forCashBreakDownChart.js'
+import { calculateOverallSavings } from './helperfunctions/forFinanceHealthChart.js'
 
 const Dashboard = () => {
     const { currUserData } = useContext(UserContext);
@@ -58,6 +60,10 @@ const Dashboard = () => {
     incomeResult.map(item => income += item.amount);
     expenseResult.map(item => expense += item.amount);
 
+    const incomeBreakDown = calculateMonthlyTotals(incomeResult);
+    const expenseBreakDown = calculateMonthlyTotals(expenseResult);
+    const overallMonthylySaved = calculateOverallSavings(incomeResult, expenseResult).toFixed(2);
+
     function incomeHandler(e) {
         e.preventDefault();
         console.log("income");
@@ -88,7 +94,7 @@ const Dashboard = () => {
                 </div>
             </div>
 
-            <div className="h-105 px-4 py-1 overflow-auto">
+            <div className="h-105 px-4 py-1 overflow-auto custom-scrollbar">
                 <div className="grid grid-cols-3 auto-rows-min gap-2">
                     <button onClick={incomeHandler} className='cursor-pointer hover:bg-gray-100'>
                         <div className="flex items-center justify-around col-span-1 row-span-1 ring-1 ring-gray-300 rounded-md h-16">
@@ -173,11 +179,11 @@ const Dashboard = () => {
                     </div>
                     <div className="col-span-2 row-span-4 ring-1 ring-gray-300 rounded-md h-64 overflow-auto custom-scrollbar">
                         <div className='flex items-center justify-between px-4 pt-2'>
-                            <p className='text-sm font-bold'>Finance Health</p>
+                            <p className='text-sm font-bold'>Cash Breakdown</p>
                             <Tabs />
                         </div>
                         <div className='m-1 text-xs'>
-                            <CashBreakdownChart />
+                            <CashBreakdownChart incomeBreakDown={incomeBreakDown} expenseBreakDown={expenseBreakDown} />
                         </div>
                     </div>
                     <div className="col-span-2 row-span-4 ring-1 ring-gray-300 rounded-md h-64 overflow-auto custom-scrollbar">
@@ -203,7 +209,7 @@ const Dashboard = () => {
                                 <button className='ring-1 text-xs p-1 rounded-sm ring-gray-200 cursor-pointer hover:bg-gray-200'>See More</button>
                             </NavLink>
                         </div>
-                        <FinanceHealthChart />
+                        <FinanceHealthChart overAllPercentage={overallMonthylySaved} />
                     </div>
                 </div>
             </div>

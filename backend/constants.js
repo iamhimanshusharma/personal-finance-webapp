@@ -1,1 +1,1 @@
-export const USER_URI = `http://localhost:5173`
+export const USER_URI = process.env.REQUEST_URL || `http://localhost:5173`

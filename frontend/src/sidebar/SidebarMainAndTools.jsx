@@ -1,5 +1,4 @@
 import IconTextButton from "../utils/IconTextButton"
-import IconTextButtonActive from "../utils/IconTextButtonActive"
 
 const SidebarMainAndTools = () => {
     return (

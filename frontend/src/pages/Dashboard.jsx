@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import ContentsHeader from '../contents/ContentsHeader'
 import IconTextButton from '../utils/IconTextButton'
 import IconTextButtonActive from '../utils/IconTextButtonActive'
-import { SideBarContext } from '../contexts/SideBarContext'
 import { NavLink } from 'react-router-dom'
 import OutlinedIconButton from '../utils/OutlinedIconButton'
 import OutlinedIconTextButton from '../utils/OutlinedIconTextButton'
@@ -16,9 +15,10 @@ import FinanceHealthChart from '../graphs/FinanceHealthChart'
 import FinanceHealthGauge from '../graphs/FinanceHealthGauge'
 import Tabs from './components/Tabs'
 import SearchBar from './components/SearchBar'
+import { UserContext } from '../contexts/UserContext'
 
 const Dashboard = () => {
-    const { currUserData } = useContext(SideBarContext);
+    const { currUserData } = useContext(UserContext);
     const [currCardNumber, setCurrCardNumber] = useState();
     const currCard = currUserData?.cards[0]?.cardnumber;
     let DataBalance = []
@@ -93,7 +93,7 @@ const Dashboard = () => {
                     <button onClick={incomeHandler} className='cursor-pointer hover:bg-gray-100'>
                         <div className="flex items-center justify-around col-span-1 row-span-1 ring-1 ring-gray-300 rounded-md h-16">
                             <div className='flex items-center'>
-                                <img src="./src/images/other_icons/income.png" alt="" className='h-12 w-12' />
+                                <img src="/images/other_icons/income.png" alt="" className='h-12 w-12' />
                                 <div className='px-4'>
                                     <p className='text-xs text-gray-500 text-left'>Income</p>
                                     <p className='text-2xl font-bold'>₹ {income}</p>
@@ -117,7 +117,7 @@ const Dashboard = () => {
                     <button onClick={expenseHandler} className='cursor-pointer hover:bg-gray-100'>
                         <div className="flex items-center justify-around col-span-1 row-span-1 ring-1 ring-gray-300 rounded-md h-16">
                             <div className='flex items-center'>
-                                <img src="./src/images/other_icons/expense.png" alt="" className='h-12 w-12' />
+                                <img src="/images/other_icons/expense.png" alt="" className='h-12 w-12' />
                                 <div className='px-4'>
                                     <p className='text-xs text-gray-500 text-left'>Expenses</p>
                                     <p className='text-2xl font-bold'>₹ {expense}</p>

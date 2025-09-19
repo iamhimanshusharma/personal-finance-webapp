@@ -1,9 +1,6 @@
 import SidebarHeader from './SidebarHeader'
 import SidebarMainAndTools from './SidebarMainAndTools'
 import SidebarFooter from './SidebarFooter'
-import { useContext } from 'react';
-import { SideBarContext } from '../contexts/SideBarContext.js';
-import { Router } from 'react-router-dom';
 
 const Sidebar = () => {
 

@@ -2,11 +2,12 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { USER_URI } from '../../constants';
 import { useContext } from 'react';
-import { SideBarContext } from '../../contexts/SideBarContext';
 
-const Transactions = ({ SelectCard, allDashPayments, setAllDashPayments }) => {
-    console.log("setAllDashPayments:", setAllDashPayments);
-    const { allCards, setAllCards } = useContext(SideBarContext);
+import { UserContext } from '../../contexts/UserContext';
+
+const Transactions = ({ SelectCard, allDashPayments = [], setAllDashPayments = () => { } }) => { //Declare the type of props otherwise it throws error specially when function is given
+
+    const { allCards, setAllCards } = useContext(UserContext);
     const [allPayments, setAllPayments] = useState([{
         sendername: "",
         sendercardnumber: "",
@@ -27,7 +28,7 @@ const Transactions = ({ SelectCard, allDashPayments, setAllDashPayments }) => {
             if (!response) {
                 console.log("Something wrong in getting payments")
             }
-            setAllPayments(prev => ([...response.data.payments.map(item => ({
+            setAllPayments(response.data.payments.map(item => ({
                 sendername: item.sendername,
                 sendercardnumber: item.sendercardnumber,
                 receivername: item.receivername,
@@ -35,8 +36,9 @@ const Transactions = ({ SelectCard, allDashPayments, setAllDashPayments }) => {
                 amount: item.amount,
                 currentBalance: item.currentBalance,
                 createdAt: item.createdAt
-            }))]))
-            setAllDashPayments(prev => ([...response.data.payments.map(item => ({
+            })));
+
+            setAllDashPayments(response.data.payments.map(item => ({
                 sendername: item.sendername,
                 sendercardnumber: item.sendercardnumber,
                 receivername: item.receivername,
@@ -44,7 +46,7 @@ const Transactions = ({ SelectCard, allDashPayments, setAllDashPayments }) => {
                 amount: item.amount,
                 currentBalance: item.currentBalance,
                 createdAt: item.createdAt
-            }))]))
+            })));
         } catch (error) {
             console.log(error)
         }

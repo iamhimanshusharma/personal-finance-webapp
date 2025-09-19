@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import Contents from "./contents/Contents"
 import Sidebar from "./sidebar/Sidebar"
-import { SideBarContext } from "./contexts/SideBarContext";
+import { UserContext } from "./contexts/UserContext";
 
 function Dashboard() {
-    const { sideBarShow, setSideBarShow } = useContext(SideBarContext);
+    const { sideBarShow, setSideBarShow } = useContext(UserContext);
     return (
         <div>
             <div className="grid grid-cols-5 grid-flow-col h-screen bg-gray-200">

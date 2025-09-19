@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import IconTextButton from '../utils/IconTextButton';
 import OutlinedIconTextButton from '../utils/OutlinedIconTextButton';
 import { useContext } from 'react';
-import { SideBarContext } from '../contexts/SideBarContext';
 import axios from 'axios';
 import { USER_URI } from '../constants';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../contexts/UserContext';
 
 const UserProfile = () => {
 
     const [userProfileOption, setUserProfileOption] = useState(false);
-    const { currUserData } = useContext(SideBarContext);
+    const { currUserData, logout } = useContext(UserContext);
     const navigate = useNavigate();
 
     async function logoutHandler(e) {
@@ -22,6 +22,7 @@ const UserProfile = () => {
                 }, withCredentials: true
             });
             if (response) {
+                logout();
                 navigate("/login");
             }
         } catch (error) {

@@ -1,1 +1,1 @@
-export const USER_URI = `https://personal-finance-webapp-puzh.vercel.app`
+export const USER_URI = `http://localhost:5173`

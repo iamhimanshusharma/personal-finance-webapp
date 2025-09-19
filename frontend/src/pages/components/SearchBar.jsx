@@ -6,7 +6,7 @@ const SearchBar = () => {
             {/* Left Section: Search Icon + Input */}
             <div className="flex items-center space-x-2 flex-1">
                 {/* <Search size={16} className="text-gray-400" /> */}
-                <img src="./src/images/button_icons/search.png" alt="" className='w-4 h-4' />
+                <img src="/images/button_icons/search.png" alt="" className='w-4 h-4' />
                 <input
                     type="text"
                     placeholder="Search"

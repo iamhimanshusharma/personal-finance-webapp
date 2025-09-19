@@ -5,10 +5,10 @@ import OutlinedTextInput from '../utils/OutlinedTextInput'
 import { useState } from 'react'
 import axios from "axios"
 import { Toaster, toast } from 'sonner';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Cookies from "js-cookie";
-import { SideBarContext } from '../contexts/SideBarContext.js'
 import { USER_URI } from '../constants.js';
+import { UserContext } from '../contexts/UserContext.js'
 
 const SignIn = () => {
 
@@ -18,14 +18,14 @@ const SignIn = () => {
         password: ""
     });
 
-    const { sideBarShow, setSideBarShow, currUserData, setCurrUserData } = useContext(SideBarContext)
+    const { sideBarShow, setSideBarShow, currUserData, setCurrUserData, login } = useContext(UserContext)
     const navigate = useNavigate();
 
     useEffect(() => {
         const userCookie = Cookies.get("token");
 
         if (userCookie) {
-            navigate("/");
+            login();
         }
     });
 
@@ -43,7 +43,7 @@ const SignIn = () => {
                 withCredentials: true,
             })
                 .then(function (response) {
-                    navigate("/")
+                    { login() }
                 })
                 .catch(function (error) {
                     console.log(error)

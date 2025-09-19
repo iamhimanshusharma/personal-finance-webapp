@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import ContentsHeader from '../contents/ContentsHeader'
-import { SideBarContext } from '../contexts/SideBarContext'
 import axios from 'axios';
 import { USER_URI } from '../constants';
 import OutlinedIconTextButton from '../utils/OutlinedIconTextButton';
 import { Toaster, toast } from "sonner";
 import Transactions from './components/Transactions';
+import { UserContext } from '../contexts/UserContext';
 
 const Payment = () => {
-    const { currUserData, allCards } = useContext(SideBarContext)
+    const { currUserData, allCards } = useContext(UserContext)
     const [selectCard, setSelectCard] = useState(null);
     const [paymentDetails, setPaymentDetails] = useState({
         sendercardnumber: "",

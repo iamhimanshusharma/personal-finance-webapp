@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 const HomeHeader = ({ children }) => {
     return (
         <>
-            <div className='flex items-center justify-between p-3 shadow'>
+            <div className='flex items-center justify-between p-3 sticky top-0 bg-white shadow'>
                 <NavLink to="/">
                     <div className='flex items-center'>
                         <img className="w-10 h-10" src="/images/button_icons/user.png" alt="" />

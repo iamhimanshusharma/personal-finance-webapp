@@ -15,7 +15,7 @@ const InvoiceEntity = ({ Name, Invoice, Due, Status, Amount }) => {
                     <p>{Invoice}</p>
                     <p>{Due}</p>
                     <div className='flex items-center space-x-2'>
-                        <img src="./src/images/other_icons/paid.png" alt="" className='h-4 w-4' />
+                        <img src="/images/other_icons/paid.png" alt="" className='h-4 w-4' />
                         <p >{Status}</p>
                     </div>
                     <p>₹ {Amount}</p>

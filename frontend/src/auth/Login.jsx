@@ -3,10 +3,10 @@ import HomeHeader from '../HomeHeader'
 import OutlinedIconTextButton from '../utils/OutlinedIconTextButton'
 import OutlinedTextInput from '../utils/OutlinedTextInput'
 import axios from 'axios'
-import { SideBarContext } from '../contexts/SideBarContext.js'
 import { useNavigate } from 'react-router-dom'
 import { USER_URI } from '../constants.js'
 import Cookies from "js-cookie"
+import { UserContext } from '../contexts/UserContext.js'
 
 const Login = () => {
 
@@ -14,14 +14,14 @@ const Login = () => {
         email: "",
         password: ""
     })
-    const { sideBarShow, setSideBarShow, currUserData, setCurrUserData } = useContext(SideBarContext)
+    const { sideBarShow, setSideBarShow, currUserData, setCurrUserData, login } = useContext(UserContext)
     const navigate = useNavigate();
 
     useEffect(() => {
         const userCookie = Cookies.get("token");
 
         if (userCookie) {
-            navigate("/");
+            login();
         }
     }, []);
 
@@ -39,7 +39,7 @@ const Login = () => {
             });
             if (response) {
                 setCurrUserData({ ...currUserData, fullname: response.data.user.fullname, email: response.data.user.email })
-                navigate("/")
+                login()
             }
         } catch (error) {
             console.log(error);

@@ -1,17 +1,18 @@
-import { StrictMode } from 'react'
+import { StrictMode, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import SideBarProvider from './contexts/SideBarProvider'
+import UserProvider from './contexts/UserProvider.jsx'
 import { BrowserRouter } from 'react-router-dom'
+import Cookies from "js-cookie"
 
 createRoot(document.getElementById('root')).render(
   // <StrictMode>
-  <SideBarProvider>
+  <UserProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </SideBarProvider>
+  </UserProvider>
   // </StrictMode>
   ,
 )

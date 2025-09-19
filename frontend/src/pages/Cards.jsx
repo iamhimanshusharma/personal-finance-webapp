@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import ContentsHeader from '../contents/ContentsHeader'
 import { useContext } from 'react'
-import { SideBarContext } from '../contexts/SideBarContext'
 import IconTextButton from '../utils/IconTextButton'
 import AddCardPopup from './AddCardPopup'
 import SearchBar from './components/SearchBar'
+import { UserContext } from '../contexts/UserContext'
 
 const Cards = () => {
-    const { currUserData } = useContext(SideBarContext);
+    const { currUserData } = useContext(UserContext);
     const [showCardDetails, setShowCardDetails] = useState(0)
     const [addCardPopup, setAddCardPopup] = useState(false);
 

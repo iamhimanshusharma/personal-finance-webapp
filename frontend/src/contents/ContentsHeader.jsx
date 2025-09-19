@@ -2,17 +2,17 @@ import OutlinedIconTextButton from "../utils/OutlinedIconTextButton"
 import OutlinedIconButton from "../utils/OutlinedIconButton"
 import UserProfile from "./UserProfile"
 import { useContext, useEffect, useState } from "react";
-import { SideBarContext } from "../contexts/SideBarContext.js";
 import Cookies from "js-cookie"
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { USER_URI } from "../constants.js";
+import { UserContext } from "../contexts/UserContext.js";
 
 const ContentsHeader = ({ Title }) => {
 
     const navigate = useNavigate();
-    const { sideBarShow, setSideBarShow, allCards, setAllCards, currUserData, setCurrUserData } = useContext(SideBarContext);
+    const { sideBarShow, setSideBarShow, allCards, setAllCards, currUserData, setCurrUserData, logout } = useContext(UserContext);
 
     const [userId, setUserId] = useState(null);
 

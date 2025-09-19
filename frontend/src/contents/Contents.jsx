@@ -8,28 +8,18 @@ import Reports from "../pages/Reports"
 import Settings from "../pages/Settings"
 import HelpAndSupport from "../pages/HelpAndSupport"
 import ContentsHeader from "./ContentsHeader"
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import { useState } from "react"
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, Outlet } from "react-router-dom";
+import { useContext, useState } from "react"
 import Login from "../auth/Login";
 import MainPage from "../MainPage"
 import App from "../App"
+import { UserContext } from "../contexts/UserContext"
 
 const Contents = () => {
 
     return (
         <>
-            <Routes>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/payment" element={<Payment />} />
-                <Route path="/invoice" element={<Invoice />} />
-                <Route path="/cards" element={<Cards />} />
-                <Route path="/activity" element={<Activity />} />
-                <Route path="/email" element={<Email />} />
-                <Route path="/reports" element={<Reports />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="/helpandsupport" element={<HelpAndSupport />} />
-            </Routes>
-
+            <Outlet />
         </>
     )
 }

@@ -7,7 +7,7 @@ import { dbConnect } from "./db/db.js";
 import userRouter from "./routes/user.routes.js";
 import cardRouter from "./routes/card.route.js";
 import paymentRouter from "./routes/payment.route.js";
-import { USER_URI } from "./constants.js";
+import { REQUEST_URL } from "./constants.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;

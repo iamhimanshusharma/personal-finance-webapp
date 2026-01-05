@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ContentsHeader from '../contents/ContentsHeader'
 import { useContext } from 'react'
 import IconTextButton from '../utils/IconTextButton'
-import AddCardPopup from './AddCardPopup'
+import AddCardPopup from './cards/AddCardPopup'
 import SearchBar from './components/SearchBar'
 import { UserContext } from '../contexts/UserContext'
 

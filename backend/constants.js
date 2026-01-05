@@ -1,1 +1,0 @@
-export const REQUEST_URL = process.env.REQUEST_URL || `http://localhost:5173`

@@ -6,10 +6,10 @@ import OutlinedIconTextButton from '../utils/OutlinedIconTextButton';
 import { Toaster, toast } from "sonner";
 import Transactions from './components/Transactions';
 import { UserContext } from '../contexts/UserContext';
-import ToPayPopup from './ToPayPopup';
 import SearchBar from './components/SearchBar';
 import IconTextButtonActive from '../utils/IconTextButtonActive';
 import IconTextButton from '../utils/IconTextButton';
+import ToPayPopup from './transaction/ToPayPopup';
 
 const Payment = () => {
     const { currUserData, allCards } = useContext(UserContext)

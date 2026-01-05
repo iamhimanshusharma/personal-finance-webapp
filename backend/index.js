@@ -10,16 +10,9 @@ import paymentRouter from "./routes/payment.route.js";
 import { REQUEST_URL } from "./constants.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 app.use(cookieParser());
-
-const corsOptions = {
-    origin: REQUEST_URL,
-    credentials: true
-}
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -27,9 +20,31 @@ app.use("/api/v1/user", userRouter);
 app.use("/api/v1/user/card", cardRouter);
 app.use("/api/v1/user/payment", paymentRouter);
 
-app.listen(PORT, () => {
-    dbConnect();
-    console.log(`Server is running at port ${PORT}`);
-})
+const dbConnection = async () => {
+    try {
+        await dbConnect();
+        app.listen(process.env.PORT, () => {
+            console.log(`Server is running at port ${PORT}`);
+        })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+if (process.env.NODE_ENV = "development") {
+    dbConnection();
+}
+
+const dbConnectionProduction = async () => {
+    try {
+        await dbConnect();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+if (process.env.NODE_ENV = "production") {
+    dbConnectionProduction();
+}
 
 export default app;

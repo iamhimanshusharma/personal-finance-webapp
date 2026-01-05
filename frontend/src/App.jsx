@@ -18,6 +18,7 @@ import HelpAndSupport from "./pages/HelpAndSupport";
 import { useEffect } from "react";
 import Cookies from "js-cookie"
 import { UserContext } from "./contexts/UserContext";
+import Test from "./pages/Test";
 
 const ProtectedRoute = ({ children }) => {
   const { loggedIn, login, logout } = useContext(UserContext);
@@ -67,6 +68,7 @@ function App() {
               <Route path="email" element={<Email />} />
               <Route path="reports" element={<Reports />} />
               <Route path="settings" element={<Settings />} />
+              <Route path="test" element={<Test />} />
               <Route path="helpandsupport" element={<HelpAndSupport />} />
             </>
           )}

@@ -7,7 +7,7 @@ const SidebarMainAndTools = () => {
             <div>
                 <ul>
                     <li>
-                        <IconTextButton Path={"/"} IconSource={"home.png"} FilledIconSource={"home_filled.png"} ButtonText={"Dashboard"} />
+                        <IconTextButton Path={"/"} IconSource={"home.svg"} FilledIconSource={"home_filled.png"} ButtonText={"Dashboard"} />
                     </li>
                     <li>
                         <IconTextButton Path={"/payment"} IconSource={"wallet.png"} FilledIconSource={"wallet_filled.png"} ButtonText={"Payment"} />
@@ -16,7 +16,7 @@ const SidebarMainAndTools = () => {
                         <IconTextButton Path={"/invoice"} IconSource={"invoice.png"} FilledIconSource={"invoice_filled.png"} ButtonText={"Invoice"} />
                     </li>
                     <li>
-                        <IconTextButton Path={"/cards"} IconSource={"creditcard.png"} FilledIconSource={"creditcard_filled.png"} ButtonText={"Cards"} />
+                        <IconTextButton Path={"/cards"} IconSource={"creditcard.svg"} FilledIconSource={"creditcard_filled.svg"} ButtonText={"Cards"} />
                     </li>
                 </ul>
 

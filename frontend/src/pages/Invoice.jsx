@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import ContentsHeader from '../contents/ContentsHeader'
 import InvoiceEntity from './components/InvoiceEntity'
 import IconTextButton from '../utils/IconTextButton';
-import AddCardPopup from './AddCardPopup'
 import SearchBar from './components/SearchBar';
-import AddInvoice from './components/AddInvoice';
+import AddInvoice from './invoice/AddInvoicePopup';
 
 const Invoice = () => {
     const [addCardPopup, setAddCardPopup] = useState(false);
@@ -33,6 +32,7 @@ const Invoice = () => {
                 <div className='overflow-auto max-h-93 custom-scrollbar'>
                     <InvoiceEntity Name={`customername`} Invoice={`invoicenumber`} Due={`duedate`} Status={`status`} Amount={`txnamount`} />
                 </div>
+
             </div>
         </>
     )

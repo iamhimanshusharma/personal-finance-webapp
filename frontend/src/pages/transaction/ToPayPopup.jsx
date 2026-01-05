@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { toast, Toaster } from 'sonner';
-import IconTextButton from '../utils/IconTextButton';
-import OutlinedIconTextButton from '../utils/OutlinedIconTextButton';
 import axios from 'axios';
-import { USER_URI } from '../constants';
+import IconTextButton from '../../utils/IconTextButton';
+import OutlinedIconTextButton from '../../utils/OutlinedIconTextButton';
+import { USER_URI } from '../../constants';
 
 const ToPayPopup = ({ Show, OnClose, currUserData, allCards }) => {
     const [closePopup, setClosePopup] = useState(Show);
@@ -45,7 +45,7 @@ const ToPayPopup = ({ Show, OnClose, currUserData, allCards }) => {
 
                 <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
                     <div className="bg-white rounded-2xl shadow-lg p-6 w-96">
-                        <h2 className="text-xl font-semibold mb-4">Add Card</h2>
+                        <h2 className="text-xl font-semibold mb-4">Pay</h2>
 
                         <div>
                             <label className="text-sm font-medium">Sender</label>

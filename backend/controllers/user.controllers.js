@@ -142,3 +142,11 @@ export const userTest = async (req, res) => {
         console.log(error);
     }
 }
+
+export const selfUser = async (req, res) => {
+    if (!req.cookies.token) {
+        return res.status(401).json({ message: "Unauthorized" });
+    }
+
+    res.status(200).json({ success: true });
+}

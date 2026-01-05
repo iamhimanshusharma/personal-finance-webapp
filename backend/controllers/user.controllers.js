@@ -42,7 +42,7 @@ export const userSignIn = async (req, res) => {
             userId: response._id,
         }, process.env.JWT_TOKEN_SECRET, { expiresIn: '1d' });
 
-        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpsOnly: true, sameSite: 'strict' }).json({
+        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpsOnly: true, secure: true, sameSite: "none" }).json({
             message: "Sign Successful",
             success: true,
             user: userData
@@ -86,7 +86,7 @@ export const userLogin = async (req, res) => {
             userId: user._id,
         }, process.env.JWT_TOKEN_SECRET, { expiresIn: '1d' });
 
-        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpsOnly: true, sameSite: 'strict' }).json({
+        return res.status(200).cookie("token", token, { maxAge: 1 * 24 * 60 * 60 * 1000, httpsOnly: true, secure: true, sameSite: "none" }).json({
             message: "Login Successful",
             success: true,
             user: user

@@ -7,7 +7,6 @@ import { dbConnect } from "./db/db.js";
 import userRouter from "./routes/user.routes.js";
 import cardRouter from "./routes/card.route.js";
 import paymentRouter from "./routes/payment.route.js";
-import { REQUEST_URL } from "./constants.js";
 
 const app = express();
 
@@ -24,14 +23,14 @@ const dbConnection = async () => {
     try {
         await dbConnect();
         app.listen(process.env.PORT, () => {
-            console.log(`Server is running at port ${PORT}`);
+            console.log(`Server is running at port ${process.env.PORT}`);
         })
     } catch (error) {
         console.log(error);
     }
 }
 
-if (process.env.NODE_ENV = "development") {
+if (process.env.NODE_ENV == "development") {
     dbConnection();
 }
 
@@ -43,7 +42,7 @@ const dbConnectionProduction = async () => {
     }
 }
 
-if (process.env.NODE_ENV = "production") {
+if (process.env.NODE_ENV == "production") {
     dbConnectionProduction();
 }
 
